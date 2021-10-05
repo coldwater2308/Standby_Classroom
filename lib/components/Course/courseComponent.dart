@@ -12,7 +12,7 @@ class CourseComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   title= (Title.length>20) ?Title.substring(0,20)+"...":Title;
+   title= (Title.length>25) ?Title.substring(0,25)+"...":Title;
     
     return  
       GestureDetector(
@@ -78,14 +78,19 @@ class CourseComponent extends StatelessWidget {
                              )
                              ),
                              Expanded( 
-                               flex: 2,
-                               child: IconButton(
-                                 onPressed: (){
-                                   
-                                   Provider.of<StateData>(context,listen: false).colorChange();
-                                 },
-                                 icon:  Icon(Icons.favorite, color: (Provider.of<StateData>(context).icColor)?Colors.red:Colors.black,),
-                                
+                               flex: 1,
+                               child: Container(  
+                                 width: 5,
+                                 padding: EdgeInsets.zero,
+                                 decoration: BoxDecoration(border: Border.all(style: BorderStyle.solid,color: Colors.black),borderRadius: BorderRadius.circular(10)),
+                                 child: IconButton(
+                                   onPressed: (){
+                                     
+                                     Provider.of<StateData>(context,listen: false).colorChange();
+                                   },
+                                   icon:  Icon(Icons.favorite, color: (Provider.of<StateData>(context).icColor)?Colors.red:Colors.black,size: 20,),
+                                  
+                                 ),
                                ),
                                )  ],
                          )
